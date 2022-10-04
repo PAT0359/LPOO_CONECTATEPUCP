@@ -3,6 +3,7 @@
 #include "ReportForm.h"
 #include "UserForm.h"
 #include "TagsForm.h"
+#include "LocationForm.h"
 
 namespace ConectateApp {
 
@@ -138,11 +139,11 @@ namespace ConectateApp {
 			// 
 			// lugaresToolStripMenuItem
 			// 
-			/*this->lugaresToolStripMenuItem->Name = L"lugaresToolStripMenuItem";
+			this->lugaresToolStripMenuItem->Name = L"lugaresToolStripMenuItem";
 			this->lugaresToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->lugaresToolStripMenuItem->Text = L"Lugares";
 			this->lugaresToolStripMenuItem->Click += gcnew System::EventHandler(this, &ConectateMainForm::lugaresToolStripMenuItem_Click);
-			//*/ 
+			//
 			// usuariosToolStripMenuItem
 			// 
 			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
@@ -214,7 +215,9 @@ private: System::Void tagsToolStripMenuItem_Click(System::Object^ sender, System
 	tagsForm->Show();
 }
 private: System::Void lugaresToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+	LocationForm^ locationForm = gcnew LocationForm();
+	locationForm->MdiParent = this;
+	locationForm->Show();
 }
 };
 }
