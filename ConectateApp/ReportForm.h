@@ -277,7 +277,12 @@ namespace ConectateApp {
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		int reportId = Int32::Parse(textId->Text);
+		Report^ p = Controller::QueryReportById(reportId);
+		textId->Text = "" + p->ReportId;
+		textName->Text = p->Name;
+		textDescription->Text = p->ReportDescription;
+		textDate->Text = p->ReportDate;
 	}
 	private: System::Void dgvReport_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		int selectedRowIndex = dgvReport->SelectedCells[0]->RowIndex;

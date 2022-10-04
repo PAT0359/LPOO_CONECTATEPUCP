@@ -10,7 +10,7 @@ int main(array<System::String^>^ args)
 {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
-    //LPOOInduction is your project name
+    //ConectateApp is your project name
     ConectateApp::ConectateMainForm form;
     Application::Run(% form);
 

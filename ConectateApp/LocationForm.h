@@ -220,43 +220,43 @@ namespace ConectateApp {
 #pragma endregion
 		public:
 			void RefreshGrid() {
-				List<Location^>^locationList = Controller::QueryAllLocation();
+				/*List<Location^>^ locationList = Controller::QueryAllLocation();
 				dgvLocation->Rows->Clear();
 				for (int i = 0; i < locationList->Count; i++) {
 					dgvLocation->Rows->Add(gcnew array<String^>{
 						"" + locationList[i]->LocationId,
 							locationList[i]->LocationName});
-				}
+				}*/
 			}
 
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-		Location^ l = gcnew Location();
+		/*Location^ l = gcnew Location();
 		l->LocationId = Int32::Parse(txtLocationId->Text);
 		l->LocationName = txtLocationName->Text;
 
 		Controller::AddLocation(l);
-		RefreshGrid();
+		RefreshGrid();*/
 	}
 private: System::Void btnEdit_Click(System::Object^ sender, System::EventArgs^ e) {
-	Location^ l = gcnew Location();
+	/*Location^ l = gcnew Location();
 	l->LocationId = Int32::Parse(txtLocationId->Text);
 	l->LocationName = txtLocationName->Text;
 
 	Controller::UpdateLocation(l);
-	RefreshGrid();
+	RefreshGrid();*/
 }
 private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-	int locationId = Int32::Parse(txtLocationId->Text);
+	/*int locationId = Int32::Parse(txtLocationId->Text);
 	Controller::DeleteUser(locationId);
-	RefreshGrid();
+	RefreshGrid();*/
 }
 private: System::Void dgvLocation_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	int selectedRowIndex = dgvLocation->SelectedCells[0]->RowIndex;
+	/*int selectedRowIndex = dgvLocation->SelectedCells[0]->RowIndex;
 	int locationId = Int32::Parse(dgvLocation->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
 	Location^ l = Controller::QueryLocationById(locationId);
 
 	txtLocationId->Text = "" + l->LocationId;
-	txtLocationName->Text = l->LocationName;
+	txtLocationName->Text = l->LocationName;*/
 }
 	};
 }
