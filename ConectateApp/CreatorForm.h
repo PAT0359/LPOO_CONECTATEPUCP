@@ -15,10 +15,10 @@ namespace ConectateApp {
 	/// <summary>
 	/// Resumen de UserForm
 	/// </summary>
-	public ref class UserForm : public System::Windows::Forms::Form
+	public ref class CreatorForm : public System::Windows::Forms::Form
 	{
 	public:
-		UserForm(void)
+		CreatorForm(void)
 		{
 			InitializeComponent();
 			//
@@ -30,7 +30,7 @@ namespace ConectateApp {
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
 		/// </summary>
-		~UserForm()
+		~CreatorForm()
 		{
 			if (components)
 			{
@@ -55,12 +55,29 @@ namespace ConectateApp {
 	private: System::Windows::Forms::Button^ btnAdd;
 	private: System::Windows::Forms::Button^ btnEdit;
 	private: System::Windows::Forms::Button^ btnDelete;
-	private: System::Windows::Forms::DataGridView^ dgvUser;
+	private: System::Windows::Forms::DataGridView^ dgvCreator;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ creatorId;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ creatorName;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ creatorPassword;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ creatorState;
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ userId;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ userName;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ userPassword;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ userState;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -70,7 +87,7 @@ namespace ConectateApp {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -92,13 +109,13 @@ namespace ConectateApp {
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->btnEdit = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
-			this->dgvUser = (gcnew System::Windows::Forms::DataGridView());
-			this->userId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->userName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->userPassword = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->userState = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvCreator = (gcnew System::Windows::Forms::DataGridView());
+			this->creatorId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->creatorName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->creatorPassword = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->creatorState = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->menuStrip1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvUser))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCreator))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -107,7 +124,7 @@ namespace ConectateApp {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->salirToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(709, 24);
+			this->menuStrip1->Size = System::Drawing::Size(766, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -120,16 +137,16 @@ namespace ConectateApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(58, 43);
+			this->label1->Location = System::Drawing::Point(55, 101);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(47, 13);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Account";
-			this->label1->Click += gcnew System::EventHandler(this, &UserForm::label1_Click);
+			this->label1->Click += gcnew System::EventHandler(this, &CreatorForm::label1_Click);
 			// 
 			// txtAccount
 			// 
-			this->txtAccount->Location = System::Drawing::Point(151, 40);
+			this->txtAccount->Location = System::Drawing::Point(148, 98);
 			this->txtAccount->Name = L"txtAccount";
 			this->txtAccount->Size = System::Drawing::Size(244, 20);
 			this->txtAccount->TabIndex = 2;
@@ -137,15 +154,15 @@ namespace ConectateApp {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(58, 84);
+			this->label2->Location = System::Drawing::Point(58, 62);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(44, 13);
+			this->label2->Size = System::Drawing::Size(53, 13);
 			this->label2->TabIndex = 3;
-			this->label2->Text = L"Pucp Id";
+			this->label2->Text = L"Creator Id";
 			// 
 			// txtPucpId
 			// 
-			this->txtPucpId->Location = System::Drawing::Point(151, 84);
+			this->txtPucpId->Location = System::Drawing::Point(151, 62);
 			this->txtPucpId->Name = L"txtPucpId";
 			this->txtPucpId->Size = System::Drawing::Size(144, 20);
 			this->txtPucpId->TabIndex = 4;
@@ -153,7 +170,7 @@ namespace ConectateApp {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(58, 129);
+			this->label3->Location = System::Drawing::Point(55, 139);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(53, 13);
 			this->label3->TabIndex = 5;
@@ -161,14 +178,14 @@ namespace ConectateApp {
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(151, 126);
+			this->txtPassword->Location = System::Drawing::Point(148, 136);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->Size = System::Drawing::Size(182, 20);
 			this->txtPassword->TabIndex = 6;
 			// 
 			// txtState
 			// 
-			this->txtState->Location = System::Drawing::Point(151, 165);
+			this->txtState->Location = System::Drawing::Point(148, 175);
 			this->txtState->Name = L"txtState";
 			this->txtState->Size = System::Drawing::Size(100, 20);
 			this->txtState->TabIndex = 7;
@@ -176,7 +193,7 @@ namespace ConectateApp {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(58, 168);
+			this->label4->Location = System::Drawing::Point(55, 178);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(32, 13);
 			this->label4->TabIndex = 8;
@@ -184,73 +201,73 @@ namespace ConectateApp {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(148, 218);
+			this->btnAdd->Location = System::Drawing::Point(148, 265);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(75, 23);
 			this->btnAdd->TabIndex = 9;
 			this->btnAdd->Text = L"Add";
 			this->btnAdd->UseVisualStyleBackColor = true;
-			this->btnAdd->Click += gcnew System::EventHandler(this, &UserForm::btnAdd_Click);
+			this->btnAdd->Click += gcnew System::EventHandler(this, &CreatorForm::btnAdd_Click);
 			// 
 			// btnEdit
 			// 
-			this->btnEdit->Location = System::Drawing::Point(275, 218);
+			this->btnEdit->Location = System::Drawing::Point(275, 265);
 			this->btnEdit->Name = L"btnEdit";
 			this->btnEdit->Size = System::Drawing::Size(75, 23);
 			this->btnEdit->TabIndex = 10;
 			this->btnEdit->Text = L"Edit";
 			this->btnEdit->UseVisualStyleBackColor = true;
-			this->btnEdit->Click += gcnew System::EventHandler(this, &UserForm::btnEdit_Click);
+			this->btnEdit->Click += gcnew System::EventHandler(this, &CreatorForm::btnEdit_Click);
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(411, 218);
+			this->btnDelete->Location = System::Drawing::Point(411, 265);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(75, 23);
 			this->btnDelete->TabIndex = 11;
 			this->btnDelete->Text = L"Delete";
 			this->btnDelete->UseVisualStyleBackColor = true;
-			this->btnDelete->Click += gcnew System::EventHandler(this, &UserForm::btnDelete_Click);
+			this->btnDelete->Click += gcnew System::EventHandler(this, &CreatorForm::btnDelete_Click);
 			// 
-			// dgvUser
+			// dgvCreator
 			// 
-			this->dgvUser->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvUser->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
-				this->userId, this->userName,
-					this->userPassword, this->userState
+			this->dgvCreator->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvCreator->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+				this->creatorId,
+					this->creatorName, this->creatorPassword, this->creatorState
 			});
-			this->dgvUser->Location = System::Drawing::Point(0, 268);
-			this->dgvUser->Name = L"dgvUser";
-			this->dgvUser->Size = System::Drawing::Size(709, 150);
-			this->dgvUser->TabIndex = 12;
-			this->dgvUser->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserForm::dgvUser_CellClick);
+			this->dgvCreator->Location = System::Drawing::Point(0, 336);
+			this->dgvCreator->Name = L"dgvCreator";
+			this->dgvCreator->Size = System::Drawing::Size(766, 130);
+			this->dgvCreator->TabIndex = 12;
+			this->dgvCreator->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CreatorForm::dgvUser_CellClick);
 			// 
-			// userId
+			// creatorId
 			// 
-			this->userId->HeaderText = L"Pucp Id";
-			this->userId->Name = L"userId";
+			this->creatorId->HeaderText = L"Creator Id";
+			this->creatorId->Name = L"creatorId";
 			// 
-			// userName
+			// creatorName
 			// 
-			this->userName->HeaderText = L"Account";
-			this->userName->Name = L"userName";
+			this->creatorName->HeaderText = L"Account";
+			this->creatorName->Name = L"creatorName";
 			// 
-			// userPassword
+			// creatorPassword
 			// 
-			this->userPassword->HeaderText = L"Password";
-			this->userPassword->Name = L"userPassword";
+			this->creatorPassword->HeaderText = L"Password";
+			this->creatorPassword->Name = L"creatorPassword";
 			// 
-			// userState
+			// creatorState
 			// 
-			this->userState->HeaderText = L"State";
-			this->userState->Name = L"userState";
+			this->creatorState->HeaderText = L"State";
+			this->creatorState->Name = L"creatorState";
 			// 
-			// UserForm
+			// CreatorForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(709, 393);
-			this->Controls->Add(this->dgvUser);
+			this->ClientSize = System::Drawing::Size(766, 466);
+			this->Controls->Add(this->dgvCreator);
 			this->Controls->Add(this->btnDelete);
 			this->Controls->Add(this->btnEdit);
 			this->Controls->Add(this->btnAdd);
@@ -264,11 +281,11 @@ namespace ConectateApp {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
-			this->Name = L"UserForm";
-			this->Text = L"Mantenimiento de usuarios";
+			this->Name = L"CreatorForm";
+			this->Text = L"Mantenimiento de creadores";
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvUser))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCreator))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -276,53 +293,53 @@ namespace ConectateApp {
 #pragma endregion
 	public:
 		void RefreshGrid() {
-			List<User^>^ userList = Controller::QueryAllUsers();
-			dgvUser->Rows->Clear();
-			for (int i = 0; i < userList->Count; i++) {
-				dgvUser->Rows->Add(gcnew array<String^>{
-					"" + userList[i]->PucpId,
-					userList[i]->Account,
-					userList[i]->Password,
-					userList[i]->StateUser});
+			List<Creator^>^ creatorList = Controller::QueryAllCreators();
+			dgvCreator->Rows->Clear();
+			for (int i = 0; i < creatorList->Count; i++) {
+				dgvCreator->Rows->Add(gcnew array<String^>{
+					"" + creatorList[i]->PucpId,
+						creatorList[i]->Account,
+						creatorList[i]->Password,
+						creatorList[i]->StateUser});
 			}
 		}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-	User^ u = gcnew User();
-	u->PucpId = Int32::Parse(txtPucpId->Text);
-	u->Account = txtAccount->Text;
-	u->Password = txtPassword->Text;
-	u->StateUser = txtState->Text;
+		Creator^ c = gcnew Creator();
+		c->PucpId = Int32::Parse(txtPucpId->Text);
+		c->Account = txtAccount->Text;
+		c->Password = txtPassword->Text;
+		c->StateUser = txtState->Text;
 
-	Controller::AddUser(u);
-	RefreshGrid();
+		Controller::AddCreator(c);
+		RefreshGrid();
 	}
 	private: System::Void btnEdit_Click(System::Object^ sender, System::EventArgs^ e) {
-		User^ u = gcnew User();
-		u->PucpId = Int32::Parse(txtPucpId->Text);
-		u->Account = txtAccount->Text;
-		u->Password = txtPassword->Text;
-		u->StateUser = txtState->Text;
+		Creator^ c = gcnew Creator();
+		c->PucpId = Int32::Parse(txtPucpId->Text);
+		c->Account = txtAccount->Text;
+		c->Password = txtPassword->Text;
+		c->StateUser = txtState->Text;
 
-		Controller::UpdateUser(u);
+		Controller::UpdateCreator(c);
 		RefreshGrid();
 	}
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-		int userId = Int32::Parse(txtPucpId->Text);
-		Controller::DeleteUser(userId);
+		int creatorId = Int32::Parse(txtPucpId->Text);
+		Controller::DeleteCreator(creatorId);
 		RefreshGrid();
 	}
-	
-private: System::Void dgvUser_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	int selectedRowIndex = dgvUser->SelectedCells[0]->RowIndex;
-	int userId = Int32::Parse(dgvUser->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
-	User^ u = Controller::QueryUserById(userId);
 
-	txtPucpId->Text = "" + u->PucpId;
-	txtAccount->Text = u->Account;
-	txtPassword->Text = u->Password;
-	txtState->Text = u->StateUser;
-}
-};
+	private: System::Void dgvUser_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		int selectedRowIndex = dgvCreator->SelectedCells[0]->RowIndex;
+		int creatorId = Int32::Parse(dgvCreator->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
+		Creator^ c = Controller::QueryCreatorById(creatorId);
+
+		txtPucpId->Text = "" + c->PucpId;
+		txtAccount->Text = c->Account;
+		txtPassword->Text = c->Password;
+		txtState->Text = c->StateUser;
+	}
+	};
 }

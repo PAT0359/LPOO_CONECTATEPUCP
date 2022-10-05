@@ -15,10 +15,12 @@ namespace ConectateController {
 			static List <Report^>^ reportList = gcnew List<Report^>();
 			//Location
 			static List <Location^>^ locationList = gcnew List<Location^>();
-			//User
-			static List <User^>^ userList = gcnew List<User^>();
+			//Admin
+			static List <Admin^>^ adminList = gcnew List<Admin^>();
 			//Tags
 			static List <Tags^>^ tagList = gcnew List<Tags^>();
+			//Creator
+			static List <Creator^>^ creatorList = gcnew List<Creator^>();
 		// TODO: Agregue aquí los métodos de esta clase.
 		public:
 			//Activity
@@ -38,18 +40,27 @@ namespace ConectateController {
 			static int DeleteLocation(int locationId);
 			static List <Location^>^ QueryAllLocation();
 			static Location^ QueryLocationById(int locationId);
-			//User
-			static int AddUser(User^ user);
-			static int UpdateUser(User^ user);
-			static int DeleteUser(int userId);
-			static List <User^>^ QueryAllUsers();
-			static User^ QueryUserById(int userId);
+			//Admin
+			static int AddAdmin(Admin^ admin);
+			static int UpdateAdmin(Admin^ admin);
+			static int DeleteAdmin(int adminId);
+			static List <Admin^>^ QueryAllAdmins();
+			static Admin^ QueryAdminById(int adminId);
 			//Tags
 			static int CreateTags(Tags^ tags);
 			static int UpdateTag(Tags^ tags);
 			static int DeleteTags(int tagId);
 			static List <Tags^>^ QueryAllTags();
 			static Tags^ QueryTagsById(int tagId);
+			//Creator
+			static int AddCreator(Creator^ creator);
+			static int UpdateCreator(Creator^ creator);
+			static int DeleteCreator(int creatorId);
+			static List <Creator^>^ QueryAllCreators();
+			static Creator^ QueryCreatorById(int creatorId);
+
+			//Login de usuario
+			static User^ Login(String^ username, String^ password);
 
 	};
 }

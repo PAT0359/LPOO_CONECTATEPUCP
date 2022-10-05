@@ -139,50 +139,50 @@ Location^ ConectateController::Controller::QueryLocationById(int locationId)
     return nullptr;
 }
 
-//User
+//Admin
 //Guardado
-int ConectateController::Controller::AddUser(User^ user)
+int ConectateController::Controller::AddAdmin(Admin^ admin)
 {
-    userList->Add(user);
+    adminList->Add(admin);
     return 1;
 }
 //Actualizado
-int ConectateController::Controller::UpdateUser(User^ user)
+int ConectateController::Controller::UpdateAdmin(Admin^ admin)
 {
-    for (int i = 0; i < userList->Count; i++)
-        if (user->PucpId == userList[i]->PucpId) {
-            userList[i] = user;
+    for (int i = 0; i < adminList->Count; i++)
+        if (admin->PucpId == adminList[i]->PucpId) {
+            adminList[i] = admin;
             return 1;
         }
     return 0;
 }
 //Borrado
-int ConectateController::Controller::DeleteUser(int userId)
+int ConectateController::Controller::DeleteAdmin(int adminId)
 {
-    for (int i = 0; i < userList->Count; i++)
-        if (userId == userList[i]->PucpId) {
-            userList->RemoveAt(i);
+    for (int i = 0; i < adminList->Count; i++)
+        if (adminId == adminList[i]->PucpId) {
+            adminList->RemoveAt(i);
             return 1;
         }
     return 0;
 }
 //Verificación de estado
-List<User^>^ ConectateController::Controller::QueryAllUsers() //Falta definir si se hace o no
+List<Admin^>^ ConectateController::Controller::QueryAllAdmins() //Falta definir si se hace o no
 {
-    List<User^>^ activeUserList = gcnew List<User^>();
-    for (int i = 0; i < userList->Count; i++) {
-        if (userList[i]->StateUser == "Active") {
-            activeUserList->Add(userList[i]);
+    List<Admin^>^ activeAdminList = gcnew List<Admin^>();
+    for (int i = 0; i < adminList->Count; i++) {
+        if (adminList[i]->StateUser == "Active") {
+            activeAdminList->Add(adminList[i]);
         }
     }
-    return activeUserList;
+    return activeAdminList;
 }
 //Lectura de producto
-User^ ConectateController::Controller::QueryUserById(int userId)
+Admin^ ConectateController::Controller::QueryAdminById(int adminId)
 {
-    for(int i=0; i>userList->Count;i++)
-        if (userId == userList[i]->PucpId) {
-            return userList[i];
+    for(int i=0; i>adminList->Count;i++)
+        if (adminId == adminList[i]->PucpId) {
+            return adminList[i];
         }
     return nullptr;
 }
@@ -231,4 +231,73 @@ Tags^ ConectateController::Controller::QueryTagsById(int tagId)
     //throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
+
+//Creator
+//Guardado
+int ConectateController::Controller::AddCreator(Creator^ creator)
+{
+    creatorList->Add(creator);
+    return 1;
+}
+//Actualizado
+int ConectateController::Controller::UpdateCreator(Creator^ creator)
+{
+    for (int i = 0; i < creatorList->Count; i++)
+        if (creator->PucpId == creatorList[i]->PucpId) {
+            creatorList[i] = creator;
+            return 1;
+        }
+    return 0;
+}
+//Borrado
+int ConectateController::Controller::DeleteCreator(int creatorId)
+{
+    for (int i = 0; i < creatorList->Count; i++)
+        if (creatorId == creatorList[i]->PucpId) {
+            creatorList->RemoveAt(i);
+            return 1;
+        }
+    return 0;
+}
+//Verificación de estado
+List<Creator^>^ ConectateController::Controller::QueryAllCreators() //Falta definir si se hace o no
+{
+    List<Creator^>^ activeCreatorList = gcnew List<Creator^>();
+    for (int i = 0; i < creatorList->Count; i++) {
+        if (creatorList[i]->StateUser == "Active") {
+            activeCreatorList->Add(creatorList[i]);
+        }
+    }
+    return activeCreatorList;
+}
+//Lectura de producto
+Creator^ ConectateController::Controller::QueryCreatorById(int creatorId)
+{
+    for (int i = 0; i > creatorList->Count; i++)
+        if (creatorId == creatorList[i]->PucpId) {
+            return creatorList[i];
+        }
+    return nullptr;
+}
+
+
+User^ ConectateController::Controller::Login(String^ username, String^ password)
+{
+    User^ user;
+    Creator^ creator;
+    Admin^ admin;
+    if (username == "Alejandra Patiño Espinoza" && password == "pokemon") {
+        user = gcnew User();
+        user->PucpId = 20200359;
+        user->Account = "Alejandra Patiño Espinoza";
+        user->StateUser = "Active";
+        admin = gcnew Admin();
+        admin->CodeName = "APE";
+        creator = gcnew Creator();
+        creator->CreatorId = user->PucpId;
+    }
+    return user, admin, creator;
+    // TODO: Insertar una instrucción "return" aquí
+}
+
 

@@ -1,9 +1,11 @@
 #pragma once
 #include "ActivityForm.h"
 #include "ReportForm.h"
-#include "UserForm.h"
+#include "AdminForm.h"
 #include "TagsForm.h"
 #include "LocationForm.h"
+#include "CreatorForm.h"
+#include "LoginForm.h"
 
 namespace ConectateApp {
 
@@ -50,8 +52,10 @@ namespace ConectateApp {
 	private: System::Windows::Forms::ToolStripMenuItem^ ayudaToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ reportesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ lugaresToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ usuariosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ administratorsToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ tagsToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ creadoresToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -74,10 +78,11 @@ namespace ConectateApp {
 			this->actividadesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reportesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->lugaresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->usuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->administratorsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->tagsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->creadoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -115,9 +120,10 @@ namespace ConectateApp {
 			// 
 			// mantenimientoToolStripMenuItem
 			// 
-			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
 				this->actividadesToolStripMenuItem,
-					this->reportesToolStripMenuItem, this->lugaresToolStripMenuItem, this->usuariosToolStripMenuItem, this->tagsToolStripMenuItem
+					this->reportesToolStripMenuItem, this->lugaresToolStripMenuItem, this->administratorsToolStripMenuItem, this->tagsToolStripMenuItem,
+					this->creadoresToolStripMenuItem
 			});
 			this->mantenimientoToolStripMenuItem->Name = L"mantenimientoToolStripMenuItem";
 			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(101, 20);
@@ -143,13 +149,13 @@ namespace ConectateApp {
 			this->lugaresToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->lugaresToolStripMenuItem->Text = L"Lugares";
 			this->lugaresToolStripMenuItem->Click += gcnew System::EventHandler(this, &ConectateMainForm::lugaresToolStripMenuItem_Click);
-			//
-			// usuariosToolStripMenuItem
 			// 
-			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
-			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->usuariosToolStripMenuItem->Text = L"Usuarios";
-			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &ConectateMainForm::usuariosToolStripMenuItem_Click);
+			// administratorsToolStripMenuItem
+			// 
+			this->administratorsToolStripMenuItem->Name = L"administratorsToolStripMenuItem";
+			this->administratorsToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->administratorsToolStripMenuItem->Text = L"Administrators";
+			this->administratorsToolStripMenuItem->Click += gcnew System::EventHandler(this, &ConectateMainForm::usuariosToolStripMenuItem_Click);
 			// 
 			// tagsToolStripMenuItem
 			// 
@@ -170,6 +176,13 @@ namespace ConectateApp {
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
 			// 
+			// creadoresToolStripMenuItem
+			// 
+			this->creadoresToolStripMenuItem->Name = L"creadoresToolStripMenuItem";
+			this->creadoresToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->creadoresToolStripMenuItem->Text = L"Creadores";
+			this->creadoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &ConectateMainForm::creadoresToolStripMenuItem_Click);
+			// 
 			// ConectateMainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -189,6 +202,8 @@ namespace ConectateApp {
 		}
 #pragma endregion
 	private: System::Void ConectateMainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		LoginForm^ loginForm = gcnew LoginForm();
+		loginForm->ShowDialog();
 	}
 	private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
@@ -205,9 +220,9 @@ private: System::Void reportesToolStripMenuItem_Click(System::Object^ sender, Sy
 }
 
 private: System::Void usuariosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	UserForm^ userForm = gcnew UserForm();
-	userForm->MdiParent = this;
-	userForm->Show();
+	AdminForm^ adminForm = gcnew AdminForm();
+	adminForm->MdiParent = this;
+	adminForm->Show();
 }
 private: System::Void tagsToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	TagsForm^ tagsForm = gcnew TagsForm();
@@ -218,6 +233,11 @@ private: System::Void lugaresToolStripMenuItem_Click(System::Object^ sender, Sys
 	LocationForm^ locationForm = gcnew LocationForm();
 	locationForm->MdiParent = this;
 	locationForm->Show();
+}
+private: System::Void creadoresToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	CreatorForm^ creatorForm = gcnew CreatorForm();
+	creatorForm->MdiParent = this;
+	creatorForm->Show();
 }
 };
 }
