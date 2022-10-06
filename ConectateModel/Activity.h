@@ -9,6 +9,7 @@
 
 using namespace System;
 namespace ConectateModel {
+    [Serializable]
     public ref class Activity {
     public:
         property String^ StartDate;

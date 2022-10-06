@@ -4,6 +4,7 @@ using namespace System;
 
 using namespace ConectateModel;
 using namespace System::Collections::Generic;
+using namespace System::IO;
 
 namespace ConectateController {
 	public ref class Controller
@@ -29,6 +30,8 @@ namespace ConectateController {
 			static int DeleteActivity(int activityId);
 			static List <Activity^>^ QueryAllActivities();
 			static Activity^ QueryActivityById(int activityId);
+			static void LoadActivitiesData();
+			static void PersistActivity();
 			//Report
 			static int CreateReport(Report^ report);
 			static int DeleteReport(int reportId);

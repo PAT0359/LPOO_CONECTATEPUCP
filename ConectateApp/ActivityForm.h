@@ -88,6 +88,7 @@ namespace ConectateApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ activityLocationId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ activityState;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ activityTotalParticipants;
+	private: System::Windows::Forms::Button^ btnPhoto;
 
 
 
@@ -166,6 +167,7 @@ namespace ConectateApp {
 			this->activityLocationId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->activityState = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->activityTotalParticipants = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnPhoto = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvActivity))->BeginInit();
@@ -177,7 +179,7 @@ namespace ConectateApp {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->archivoToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(967, 24);
+			this->menuStrip1->Size = System::Drawing::Size(1032, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -194,26 +196,27 @@ namespace ConectateApp {
 			// nuevaActividadToolStripMenuItem
 			// 
 			this->nuevaActividadToolStripMenuItem->Name = L"nuevaActividadToolStripMenuItem";
-			this->nuevaActividadToolStripMenuItem->Size = System::Drawing::Size(157, 22);
+			this->nuevaActividadToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->nuevaActividadToolStripMenuItem->Text = L"Crear Actividad";
 			this->nuevaActividadToolStripMenuItem->Click += gcnew System::EventHandler(this, &ActivityForm::nuevaActividadToolStripMenuItem_Click);
 			// 
 			// editarActividadToolStripMenuItem
 			// 
 			this->editarActividadToolStripMenuItem->Name = L"editarActividadToolStripMenuItem";
-			this->editarActividadToolStripMenuItem->Size = System::Drawing::Size(157, 22);
+			this->editarActividadToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->editarActividadToolStripMenuItem->Text = L"Editar Actividad";
+			this->editarActividadToolStripMenuItem->Click += gcnew System::EventHandler(this, &ActivityForm::editarActividadToolStripMenuItem_Click);
 			// 
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(157, 22);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(32, 31);
+			this->label1->Location = System::Drawing::Point(82, 32);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(53, 13);
 			this->label1->TabIndex = 1;
@@ -222,7 +225,7 @@ namespace ConectateApp {
 			// 
 			// txtTitle
 			// 
-			this->txtTitle->Location = System::Drawing::Point(132, 80);
+			this->txtTitle->Location = System::Drawing::Point(182, 81);
 			this->txtTitle->Name = L"txtTitle";
 			this->txtTitle->Size = System::Drawing::Size(100, 20);
 			this->txtTitle->TabIndex = 2;
@@ -230,7 +233,7 @@ namespace ConectateApp {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(32, 83);
+			this->label2->Location = System::Drawing::Point(82, 84);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(27, 13);
 			this->label2->TabIndex = 3;
@@ -239,43 +242,43 @@ namespace ConectateApp {
 			// 
 			// txtLocationId
 			// 
-			this->txtLocationId->Location = System::Drawing::Point(132, 262);
+			this->txtLocationId->Location = System::Drawing::Point(182, 263);
 			this->txtLocationId->Name = L"txtLocationId";
 			this->txtLocationId->Size = System::Drawing::Size(100, 20);
 			this->txtLocationId->TabIndex = 4;
 			// 
 			// txtStarDate
 			// 
-			this->txtStarDate->Location = System::Drawing::Point(132, 106);
+			this->txtStarDate->Location = System::Drawing::Point(182, 107);
 			this->txtStarDate->Name = L"txtStarDate";
 			this->txtStarDate->Size = System::Drawing::Size(100, 20);
 			this->txtStarDate->TabIndex = 5;
 			// 
 			// txtEndDate
 			// 
-			this->txtEndDate->Location = System::Drawing::Point(132, 132);
+			this->txtEndDate->Location = System::Drawing::Point(182, 133);
 			this->txtEndDate->Name = L"txtEndDate";
 			this->txtEndDate->Size = System::Drawing::Size(100, 20);
 			this->txtEndDate->TabIndex = 6;
 			// 
 			// txtDescription
 			// 
-			this->txtDescription->Location = System::Drawing::Point(132, 184);
+			this->txtDescription->Location = System::Drawing::Point(182, 185);
 			this->txtDescription->Multiline = true;
 			this->txtDescription->Name = L"txtDescription";
-			this->txtDescription->Size = System::Drawing::Size(279, 72);
+			this->txtDescription->Size = System::Drawing::Size(313, 72);
 			this->txtDescription->TabIndex = 7;
 			// 
 			// txtCreatorId
 			// 
-			this->txtCreatorId->Location = System::Drawing::Point(132, 54);
+			this->txtCreatorId->Location = System::Drawing::Point(182, 55);
 			this->txtCreatorId->Name = L"txtCreatorId";
 			this->txtCreatorId->Size = System::Drawing::Size(100, 20);
 			this->txtCreatorId->TabIndex = 8;
 			// 
 			// txtActivityId
 			// 
-			this->txtActivityId->Location = System::Drawing::Point(132, 28);
+			this->txtActivityId->Location = System::Drawing::Point(182, 29);
 			this->txtActivityId->Name = L"txtActivityId";
 			this->txtActivityId->Size = System::Drawing::Size(100, 20);
 			this->txtActivityId->TabIndex = 9;
@@ -283,7 +286,7 @@ namespace ConectateApp {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(32, 265);
+			this->label3->Location = System::Drawing::Point(82, 266);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(60, 13);
 			this->label3->TabIndex = 10;
@@ -292,7 +295,7 @@ namespace ConectateApp {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(32, 57);
+			this->label4->Location = System::Drawing::Point(82, 58);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(53, 13);
 			this->label4->TabIndex = 11;
@@ -301,7 +304,7 @@ namespace ConectateApp {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(32, 187);
+			this->label5->Location = System::Drawing::Point(82, 188);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(60, 13);
 			this->label5->TabIndex = 12;
@@ -310,7 +313,7 @@ namespace ConectateApp {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(32, 109);
+			this->label6->Location = System::Drawing::Point(82, 110);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(55, 13);
 			this->label6->TabIndex = 13;
@@ -320,7 +323,7 @@ namespace ConectateApp {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(32, 135);
+			this->label7->Location = System::Drawing::Point(82, 136);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(52, 13);
 			this->label7->TabIndex = 14;
@@ -329,7 +332,7 @@ namespace ConectateApp {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(32, 161);
+			this->label8->Location = System::Drawing::Point(82, 162);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(49, 13);
 			this->label8->TabIndex = 15;
@@ -337,7 +340,7 @@ namespace ConectateApp {
 			// 
 			// txtDeadLine
 			// 
-			this->txtDeadLine->Location = System::Drawing::Point(132, 158);
+			this->txtDeadLine->Location = System::Drawing::Point(182, 159);
 			this->txtDeadLine->Name = L"txtDeadLine";
 			this->txtDeadLine->Size = System::Drawing::Size(100, 20);
 			this->txtDeadLine->TabIndex = 16;
@@ -345,7 +348,7 @@ namespace ConectateApp {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(32, 291);
+			this->label9->Location = System::Drawing::Point(82, 292);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(32, 13);
 			this->label9->TabIndex = 17;
@@ -353,7 +356,7 @@ namespace ConectateApp {
 			// 
 			// txtState
 			// 
-			this->txtState->Location = System::Drawing::Point(132, 288);
+			this->txtState->Location = System::Drawing::Point(182, 289);
 			this->txtState->Name = L"txtState";
 			this->txtState->Size = System::Drawing::Size(100, 20);
 			this->txtState->TabIndex = 18;
@@ -361,7 +364,7 @@ namespace ConectateApp {
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(32, 318);
+			this->label10->Location = System::Drawing::Point(82, 319);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(89, 13);
 			this->label10->TabIndex = 19;
@@ -369,22 +372,24 @@ namespace ConectateApp {
 			// 
 			// txtTotalParticipants
 			// 
-			this->txtTotalParticipants->Location = System::Drawing::Point(132, 315);
+			this->txtTotalParticipants->Location = System::Drawing::Point(182, 316);
 			this->txtTotalParticipants->Name = L"txtTotalParticipants";
 			this->txtTotalParticipants->Size = System::Drawing::Size(100, 20);
 			this->txtTotalParticipants->TabIndex = 20;
 			// 
 			// pbPhoto
 			// 
-			this->pbPhoto->Location = System::Drawing::Point(552, 31);
+			this->pbPhoto->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->pbPhoto->Location = System::Drawing::Point(574, 32);
 			this->pbPhoto->Name = L"pbPhoto";
-			this->pbPhoto->Size = System::Drawing::Size(238, 252);
+			this->pbPhoto->Size = System::Drawing::Size(362, 216);
 			this->pbPhoto->TabIndex = 21;
 			this->pbPhoto->TabStop = false;
 			// 
 			// btnCreate
-			// 
-			this->btnCreate->Location = System::Drawing::Point(390, 341);
+			//
+			this->btnCreate->Enabled = false;
+			this->btnCreate->Location = System::Drawing::Point(440, 342);
 			this->btnCreate->Name = L"btnCreate";
 			this->btnCreate->Size = System::Drawing::Size(121, 23);
 			this->btnCreate->TabIndex = 22;
@@ -393,8 +398,9 @@ namespace ConectateApp {
 			this->btnCreate->Click += gcnew System::EventHandler(this, &ActivityForm::btnCreate_Click);
 			// 
 			// btnEdit
-			// 
-			this->btnEdit->Location = System::Drawing::Point(581, 341);
+			//
+			this->btnEdit->Enabled = false;
+			this->btnEdit->Location = System::Drawing::Point(631, 342);
 			this->btnEdit->Name = L"btnEdit";
 			this->btnEdit->Size = System::Drawing::Size(121, 25);
 			this->btnEdit->TabIndex = 23;
@@ -403,8 +409,9 @@ namespace ConectateApp {
 			this->btnEdit->Click += gcnew System::EventHandler(this, &ActivityForm::btnEdit_Click);
 			// 
 			// btnDelete
-			// 
-			this->btnDelete->Location = System::Drawing::Point(765, 341);
+			//
+			this->btnDelete->Enabled = false;
+			this->btnDelete->Location = System::Drawing::Point(815, 342);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(121, 25);
 			this->btnDelete->TabIndex = 24;
@@ -422,7 +429,7 @@ namespace ConectateApp {
 			});
 			this->dgvActivity->Location = System::Drawing::Point(0, 396);
 			this->dgvActivity->Name = L"dgvActivity";
-			this->dgvActivity->Size = System::Drawing::Size(967, 136);
+			this->dgvActivity->Size = System::Drawing::Size(1032, 136);
 			this->dgvActivity->TabIndex = 25;
 			this->dgvActivity->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ActivityForm::dgvActivity_CellClick);
 			this->dgvActivity->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ActivityForm::dataGridView1_CellContentClick);
@@ -486,11 +493,23 @@ namespace ConectateApp {
 			this->activityTotalParticipants->Name = L"activityTotalParticipants";
 			this->activityTotalParticipants->Width = 70;
 			// 
+			// btnPhoto
+			// 
+			this->btnPhoto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F));
+			this->btnPhoto->Location = System::Drawing::Point(708, 263);
+			this->btnPhoto->Name = L"btnPhoto";
+			this->btnPhoto->Size = System::Drawing::Size(91, 29);
+			this->btnPhoto->TabIndex = 26;
+			this->btnPhoto->Text = L"Add photo";
+			this->btnPhoto->UseVisualStyleBackColor = true;
+			this->btnPhoto->Click += gcnew System::EventHandler(this, &ActivityForm::btnPhoto_Click);
+			// 
 			// ActivityForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(967, 531);
+			this->ClientSize = System::Drawing::Size(1032, 531);
+			this->Controls->Add(this->btnPhoto);
 			this->Controls->Add(this->dgvActivity);
 			this->Controls->Add(this->btnDelete);
 			this->Controls->Add(this->btnEdit);
@@ -520,6 +539,7 @@ namespace ConectateApp {
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"ActivityForm";
 			this->Text = L"Mantenimiento de actividades";
+			this->Load += gcnew System::EventHandler(this, &ActivityForm::ActivityForm_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
@@ -548,8 +568,18 @@ namespace ConectateApp {
 							"" + activityList[i]->TotalParticipants});
 				}
 			}
-	private: System::Void nuevaActividadToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	void ClearControls() {
+		txtActivityId->Clear();
+		txtCreatorId->Clear();
+		txtTitle->Clear();
+		txtStarDate->Clear();
+		txtEndDate->Clear();
+		txtDeadLine->Clear();
+		txtDescription->Clear();
+		txtLocationId->Clear();
+		txtTotalParticipants->Clear();
 	}
+
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -596,21 +626,41 @@ private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^
 	int activityId = Int32::Parse(txtActivityId->Text);
 	Controller::DeleteActivity(activityId);
 	RefreshGrid();
+	ClearControls();
 }
 private: System::Void dgvActivity_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	int selectedRowIndex = dgvActivity->SelectedCells[0]->RowIndex;
-	int activityId = Int32::Parse(dgvActivity->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
-	Activity^ a = Controller::QueryActivityById(activityId);
+		int selectedRowIndex = dgvActivity->SelectedCells[0]->RowIndex;
+		int activityId = Int32::Parse(dgvActivity->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
+		Activity^ a = Controller::QueryActivityById(activityId);
 
-	txtActivityId->Text = "" + a->ActivityId;
-	txtCreatorId->Text = "" + a->CreatorId;
-	txtTitle->Text = a->Title;
-	txtStarDate->Text = a->StartDate;
-	txtEndDate->Text = a->EndDate;
-	txtDeadLine->Text = a->DeadLine;
-	txtDescription->Text = a->Description;
-	txtLocationId->Text = "" + a->LocationId;
-	txtTotalParticipants->Text= "" + a->TotalParticipants;
+		txtActivityId->Text = "" + a->ActivityId;
+		txtCreatorId->Text = "" + a->CreatorId;
+		txtTitle->Text = a->Title;
+		txtStarDate->Text = a->StartDate;
+		txtEndDate->Text = a->EndDate;
+		txtDeadLine->Text = a->DeadLine;
+		txtDescription->Text = a->Description;
+		txtLocationId->Text = "" + a->LocationId;
+		txtTotalParticipants->Text = "" + a->TotalParticipants;
+}
+
+private: System::Void nuevaActividadToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	ClearControls();
+	btnCreate->Enabled = true;
+	btnEdit->Enabled = false;
+	btnDelete->Enabled = false;
+}
+private: System::Void editarActividadToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	ClearControls();
+	btnCreate->Enabled = false;
+	btnEdit->Enabled = true;
+	btnDelete->Enabled = true;
+}
+private: System::Void btnPhoto_Click(System::Object^ sender, System::EventArgs^ e) {
+	MessageBox::Show("Pronto!");
+}
+private: System::Void ActivityForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	RefreshGrid();
 }
 };
 }

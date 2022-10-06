@@ -2,11 +2,58 @@
 
 #include "ConectateController.h"
 
+using namespace System::Xml::Serialization;
+
+void ConectateController::Controller::LoadActivitiesData() {
+    activityList = gcnew List<Activity^>();
+    XmlSerializer^ reader = gcnew XmlSerializer(activityList->GetType());
+    StreamReader^ sr = gcnew StreamReader("Activities.xml");
+    activityList = (List<Activity^>^)reader->Deserialize(sr);
+    /*
+    StreamReader^ sr = gcnew StreamReader("Activities.txt");
+    while (!sr->EndOfStream) {
+        Activity^ a = gcnew Activity();
+        String^ line = sr->ReadLine();
+
+        array<String^>^ data = line->Split(',');
+        a->ActivityId = Int32::Parse(data[0]);
+        a->CreatorId = Int32::Parse(data[1]);
+        a->Title = data[2];
+        a->StartDate = data[3];
+        a->EndDate = data[4];
+        a->DeadLine = data[5];
+        a->Description = data[6];
+        //a->LocationId = Int32::Parse(data[7]);
+        a->State = "Active";
+        //a->TotalParticipants = Int32::Parse(data[8]);
+        activityList->Add(a);
+    }*/
+
+    sr->Close();
+
+}
+
+void ConectateController::Controller::PersistActivity() {
+    XmlSerializer^ writer = gcnew XmlSerializer(activityList -> GetType());
+    StreamWriter^ sw = gcnew StreamWriter("Activities.xml");
+    writer->Serialize(sw, activityList);
+    /*
+    StreamWriter^ sw = gcnew StreamWriter("Activities.txt");
+    for (int i = 0; i < activityList->Count; i++) {
+        sw->WriteLine(activityList[i]->ActivityId + "," + activityList[i]->CreatorId + "," + 
+            activityList[i]->Title + "," + activityList[i]->StartDate + "," + activityList[i]->EndDate + "," + 
+            activityList[i]->DeadLine + "," + activityList[i]->Description + "," + 
+            activityList[i]->LocationId + "," + activityList[i]->TotalParticipants);
+    }*/
+    sw->Close();
+}
+
 //Activity
 //Agregar una actividad
 int ConectateController::Controller::CreateActivity(Activity^ activity)
 {
     activityList->Add(activity);
+    PersistActivity();
     return 1;
 }
 
@@ -16,6 +63,7 @@ int ConectateController::Controller::UpdateActivity(Activity^ activity)
     for (int i = 0; i < activityList->Count; i++) {
         if (activity->ActivityId == activityList[i]->ActivityId)
             activityList[i] = activity;
+        PersistActivity();
         return 1;
     }
     return 0;
@@ -27,6 +75,7 @@ int ConectateController::Controller::DeleteActivity(int activityId)
     for (int i = 0; i < activityList->Count; i++) {
         if (activityId == activityList[i]->ActivityId)
             activityList->RemoveAt(i);
+        PersistActivity();
         return 1;
     }
     return 0;
@@ -35,6 +84,7 @@ int ConectateController::Controller::DeleteActivity(int activityId)
 //
 List<Activity^>^ ConectateController::Controller::QueryAllActivities()
 {
+    LoadActivitiesData();
     List<Activity^>^ activeActivitiesList = gcnew List<Activity^>();
     for (int i = 0; i < activityList->Count; i++) {
         if (activityList[i]->State == "Active") {
@@ -286,7 +336,7 @@ User^ ConectateController::Controller::Login(String^ username, String^ password)
     User^ user;
     Creator^ creator;
     Admin^ admin;
-    if (username == "Alejandra Patiño Espinoza" && password == "pokemon") {
+    if (username == "Alejandra" && password == "pokemon") {
         user = gcnew User();
         user->PucpId = 20200359;
         user->Account = "Alejandra Patiño Espinoza";
@@ -299,5 +349,6 @@ User^ ConectateController::Controller::Login(String^ username, String^ password)
     return user, admin, creator;
     // TODO: Insertar una instrucción "return" aquí
 }
+
 
 

@@ -1,0 +1,2 @@
+1,20200359,Sesión de estudio,06/10/22,06/10/22,05/10/22,Sesión de estudio para FA2 Se realizará en el CIA en un cubiculo reservado,0,Active,0
+2,20200359,Campeonato de futbol,07/10/22,08/10/22,06/10/22,Campeonato de futbol,0,Active,0

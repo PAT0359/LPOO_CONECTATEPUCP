@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfActivity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Activity>
+    <State>Active</State>
+    <CreatorId>20200359</CreatorId>
+    <LocationId>4</LocationId>
+    <ActivityId>1</ActivityId>
+    <EndDate>06/10/22</EndDate>
+    <DeadLine>05/10/22</DeadLine>
+    <TotalParticipants>4</TotalParticipants>
+    <Description>Sesión de estudio para FA3. Se realizará en el CIA, en un cubiculo reservado.</Description>
+    <Title>Sesión de estudio</Title>
+    <StartDate>06/10/22</StartDate>
+  </Activity>
+  <Activity>
+    <State>Active</State>
+    <CreatorId>20200359</CreatorId>
+    <LocationId>3</LocationId>
+    <ActivityId>2</ActivityId>
+    <EndDate>08/10/22</EndDate>
+    <DeadLine>06/10/22</DeadLine>
+    <TotalParticipants>14</TotalParticipants>
+    <Description>Campeonato de futbol</Description>
+    <Title>Campeonato de futbol</Title>
+    <StartDate>07/10/22</StartDate>
+  </Activity>
+</ArrayOfActivity>
